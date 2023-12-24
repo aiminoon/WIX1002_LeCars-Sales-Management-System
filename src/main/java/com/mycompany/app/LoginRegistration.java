@@ -109,12 +109,14 @@ public class LoginRegistration {
             final int EMPLOYEESTATUS = 0;
             String employeeId = null;
             
-            if(rowsCount>999){
+            if(rowsCount>=999){
                 employeeId="E" + (rowsCount+1);
-            } else if(rowsCount>99) {
+            } else if(rowsCount>=99) {
                 employeeId="E0" + (rowsCount+1);
-            } else if (rowsCount>9) {
+            } else if (rowsCount>=9) {
                 employeeId="E00" + (rowsCount+1);
+            } else if (rowsCount>=0) {
+                    employeeId="E000" + (rowsCount+1);
             }
                     
             pw.print(employeeId);
