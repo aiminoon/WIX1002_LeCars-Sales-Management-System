@@ -3,11 +3,11 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  *---------------------------------------------------------------------------------------*/
 
-package com.mycompany.app;
+package intlocjava.lecars_project;
 
 import java.util.Scanner;
 
-public class main {
+public class LeCars_Project {
         public static void main(String[] args) {
             
             int checkES = -1;
@@ -44,10 +44,10 @@ public class main {
 
                 switch (checkES) {
                     case 0:
-                        SalesEmployee();
+                        SalesEmployee(checkES);
                         break;
                     case 1:
-                        ManagementEmployee();
+                        ManagementEmployee(checkES);
                         break;
                     case -1:
                         System.out.println("Error in checking employee status.");
@@ -56,7 +56,7 @@ public class main {
             }
         }
     
-    public static void SalesEmployee() {
+    public static void SalesEmployee(int checkES) {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Would you like to: ");
@@ -77,7 +77,7 @@ public class main {
                 
                 if (enterData == 1) {
                     EnterCustomerData ecd = new EnterCustomerData();
-                    ecd.customerData();
+                    ecd.customerData(checkES);
                 } else if (enterData == 2) {
                     System.out.println("Please enter your employee ID: ");
                     String employeeId = scanner.nextLine();
@@ -125,7 +125,7 @@ public class main {
         }
     }
 
-    public static void ManagementEmployee() {
+    public static void ManagementEmployee(int checkES) {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Would you like to: ");
@@ -148,7 +148,7 @@ public class main {
                 
                 if (enterData == 1) {
                     EnterCustomerData ecd = new EnterCustomerData();
-                    ecd.customerData();
+                    ecd.customerData(checkES);
                 } else if (enterData == 2) {
                     System.out.println("Please enter your employee ID: ");
                     String employeeId = scanner.nextLine();
