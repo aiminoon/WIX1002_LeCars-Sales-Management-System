@@ -84,8 +84,8 @@ public class main {
                     EnterSalesData esd = new EnterSalesData();
                     esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
-//                    EnterVechileData evd = new EnterVechileData();     *To be implemented by Dennis & Imran*
-//                    evd.VechileData();
+                    EnterVechileData evd = new EnterVechileData();
+                    evd.VechileData();
                 } else {
                     System.out.println("You entered an invalid option.");
                     break;
@@ -155,8 +155,8 @@ public class main {
                     EnterSalesData esd = new EnterSalesData();
                     esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
-//                    EnterVechileData evd = new EnterVechileData();        *To be implemented by Dennis & Imran*
-//                    evd.VechileData();
+                    EnterVechileData evd = new EnterVechileData();
+                    evd.VechileData();
                 } else {
                     System.out.println("You entered an invalid option.");
                     break;
