@@ -7,7 +7,7 @@ package intlocjava.lecars_project;
 
 import java.util.Scanner;
 
-public class LeCars_Project {
+public class main {
         public static void main(String[] args) {
             
             int checkES = -1;
@@ -82,7 +82,7 @@ public class LeCars_Project {
                     System.out.println("Please enter your employee ID: ");
                     String employeeId = scanner.nextLine();
                     EnterSalesData esd = new EnterSalesData();
-                    esd.SalesData(employeeId);
+                    esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
 //                    EnterVechileData evd = new EnterVechileData();     *To be implemented by Dennis & Imran*
 //                    evd.VechileData();
@@ -113,8 +113,8 @@ public class LeCars_Project {
                 }
                 break;
             case 3:
-                ChangePassword cp = new ChangePassword();
-                cp.change();
+//                ChangePassword cp = new ChangePassword();        *To be implemented by Dennis & Imran*
+//                cp.change();
                 break;
             case 4:
                 System.out.println("Exiting LeCars Sales Management System. Goodbye!");
@@ -153,9 +153,9 @@ public class LeCars_Project {
                     System.out.println("Please enter your employee ID: ");
                     String employeeId = scanner.nextLine();
                     EnterSalesData esd = new EnterSalesData();
-                    esd.SalesData(employeeId);
+                    esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
-//                    EnterVechileData evd = new EnterVechileData();
+//                    EnterVechileData evd = new EnterVechileData();        *To be implemented by Dennis & Imran*
 //                    evd.VechileData();
                 } else {
                     System.out.println("You entered an invalid option.");
@@ -188,8 +188,8 @@ public class LeCars_Project {
 
                 break;
             case 4:
-                ChangePassword cp = new ChangePassword();
-                cp.change();
+//                ChangePassword cp = new ChangePassword();        *To be implemented by Dennis & Imran*
+//                cp.change();
                 break;
             case 5:
                 System.out.println("Exiting LeCars Sales Management System. Goodbye!");
