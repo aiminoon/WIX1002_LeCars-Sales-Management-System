@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  *---------------------------------------------------------------------------------------*/
 
-package intlocjava.lecars_project;
+package intlocjava.lecars_project;        //Will change all the class to this package name.
 
 import java.util.Scanner;
 
