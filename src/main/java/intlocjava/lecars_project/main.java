@@ -113,8 +113,8 @@ public class main {
                 }
                 break;
             case 3:
-//                ChangePassword cp = new ChangePassword();        *To be implemented by Dennis & Imran*
-//                cp.change();
+                ChangePassword cp = new ChangePassword();
+                cp.change();
                 break;
             case 4:
                 System.out.println("Exiting LeCars Sales Management System. Goodbye!");
@@ -188,8 +188,8 @@ public class main {
 
                 break;
             case 4:
-//                ChangePassword cp = new ChangePassword();        *To be implemented by Dennis & Imran*
-//                cp.change();
+                ChangePassword cp = new ChangePassword();
+                cp.change();
                 break;
             case 5:
                 System.out.println("Exiting LeCars Sales Management System. Goodbye!");
