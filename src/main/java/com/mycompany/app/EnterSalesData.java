@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class EnterSalesData {
-    public void SalesData(String employeeId) {
+    public void SalesData(String employeeId, int checkES) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter car plate: ");
@@ -40,6 +40,49 @@ public class EnterSalesData {
             System.out.println("An error occurred while storing sales data in Sales.csv file.");
             e.printStackTrace();
         }
+        
+        if(checkES == 0){
+            try (FileWriter fw = new FileWriter(employeeId + "Sales.csv", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw)) {
+                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeId + "Sales.csv"))) {
+                    
+                lineNum.skip(Long.MAX_VALUE);
+                int rowsCountOwn = lineNum.getLineNumber();
+                System.out.println("Number of rows in the " + employeeId + "Sales.csv file: " + rowsCountOwn);
+                
+                if(rowsCountOwn == 0){
+                    pw.print("salesId");
+                    pw.print(",");
+                    pw.print("dateTime");
+                    pw.print(",");
+                    pw.print("carPlate");
+                    pw.print(",");
+                    pw.print("custId");
+                    pw.println();
+                    pw.print("employeeId");
+                    pw.println();
+                }
+                } catch (IOException e) {
+                    System.out.println("An error occured while counting number of rows in the " + employeeId + "Sales.csv file.");
+                    e.printStackTrace();
+                }
+
+                pw.print(getSalesId());
+                pw.print(",");
+                pw.print(getCurrentDateTime());
+                pw.print(",");
+                pw.print(carPlate);
+                pw.print(",");
+                pw.print(custId);
+                pw.print(",");
+                pw.print(employeeId);
+            }
+            catch(IOException e){
+                System.out.println("An error occured while entering new data in the " + employeeId + "Sales.csv file.");
+                e.printStackTrace();
+            }
+        }
     }
        
     private String getCurrentDateTime() {
@@ -59,6 +102,10 @@ public class EnterSalesData {
                 salesId="A" + (rowsCount+1);
             } else if(rowsCount>99) {
                 salesId="A0" + (rowsCount+1);
+            } else if(rowsCount>9) {
+                salesId="A00" + (rowsCount+1);
+            } else if(rowsCount>=0) {
+                salesId="A000" + (rowsCount+1);
             } 
         } catch (IOException e) {
             System.out.println("An error occured while counting number of rows in Sales.csv file.");
