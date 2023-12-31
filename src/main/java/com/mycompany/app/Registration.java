@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package intlocjava.lecars_project;
 
 import java.io.BufferedWriter;
 import java.io.FileReader;
