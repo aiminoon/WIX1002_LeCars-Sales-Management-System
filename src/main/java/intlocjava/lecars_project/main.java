@@ -71,7 +71,7 @@ public class main {
                 System.out.println("Would you like to: ");
                 System.out.println("1. Entering Customer Data");
                 System.out.println("2. Entering Sales Data");
-                System.out.println("3. Entering Vechile Data");
+                System.out.println("3. Entering Vehicle Data");
                 
                 int enterData = scanner.nextInt();
                 
@@ -84,8 +84,8 @@ public class main {
                     EnterSalesData esd = new EnterSalesData();
                     esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
-                    EnterVechileData evd = new EnterVechileData();
-                    evd.VechileData();
+                    EnterVehicle evd = new EnterVehicle();
+                    evd.VehicleData();
                 } else {
                     System.out.println("You entered an invalid option.");
                     break;
@@ -142,7 +142,7 @@ public class main {
                 System.out.println("Would you like to: ");
                 System.out.println("1. Entering Customer Data");
                 System.out.println("2. Entering Sales Data");
-                System.out.println("3. Entering Vechile Data");
+                System.out.println("3. Entering Vehicle Data");
                 
                 int enterData = scanner.nextInt();
                 
@@ -155,8 +155,8 @@ public class main {
                     EnterSalesData esd = new EnterSalesData();
                     esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
-                    EnterVechileData evd = new EnterVechileData();
-                    evd.VechileData();
+                    EnterVehicle evd = new EnterVehicle();
+                    evd.VehicleData();
                 } else {
                     System.out.println("You entered an invalid option.");
                     break;
