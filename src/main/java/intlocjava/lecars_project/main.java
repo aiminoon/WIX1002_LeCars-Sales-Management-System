@@ -58,12 +58,14 @@ public class main {
     
     public static void SalesEmployee(int checkES) {
         Scanner scanner = new Scanner(System.in);
-        
+
+        loop:
+        while(true){
         System.out.println("Would you like to: ");
         System.out.println("1. Entering New Data");
         System.out.println("2. View Info");
         System.out.println("3. Change password");
-        System.out.println("4. Exit program");
+        System.out.println("4. Logout");
         int enterSalesEmployee = scanner.nextInt();
         
         switch (enterSalesEmployee) {
@@ -118,22 +120,24 @@ public class main {
                 break;
             case 4:
                 System.out.println("Exiting LeCars Sales Management System. Goodbye!");
-                System.exit(0);
-                break;
+                break loop;
             default:
                 System.out.println("You entered an invalid option.");
+        }
         }
     }
 
     public static void ManagementEmployee(int checkES) {
         Scanner scanner = new Scanner(System.in);
-        
+
+        loop:
+        while(true){
         System.out.println("Would you like to: ");
         System.out.println("1. Entering New Data");
         System.out.println("2. View Info");
         System.out.println("3. Import Data");
         System.out.println("4. Change password");
-        System.out.println("5. Exit program");
+        System.out.println("5. Logout");
         
         int enterManagementEmployee = scanner.nextInt();
         
@@ -193,10 +197,10 @@ public class main {
                 break;
             case 5:
                 System.out.println("Exiting LeCars Sales Management System. Goodbye!");
-                System.exit(0);
-                break;
+                break loop;
             default:
                 System.out.println("You entered an invalid option.");
+        }
         }
     }
 }
