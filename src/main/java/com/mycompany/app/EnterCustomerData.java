@@ -1,4 +1,4 @@
-package intlocjava.lecars_project;
+package com.mycompany.app;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;

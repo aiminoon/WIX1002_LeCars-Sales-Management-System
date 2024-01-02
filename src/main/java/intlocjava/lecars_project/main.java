@@ -86,8 +86,8 @@ public class main {
                     EnterSalesData esd = new EnterSalesData();
                     esd.SalesData(employeeId, checkES);
                 } else if (enterData == 3) {
-                    EnterVehicle evd = new EnterVehicle();
-                    evd.VehicleData();
+                    EnterVehicleData evd = new EnterVehicleData();
+                    evd.vehicleData();
                 } else {
                     System.out.println("You entered an invalid option.");
                     break;
@@ -132,75 +132,79 @@ public class main {
 
         loop:
         while(true){
-        System.out.println("Would you like to: ");
-        System.out.println("1. Entering New Data");
-        System.out.println("2. View Info");
-        System.out.println("3. Import Data");
-        System.out.println("4. Change password");
-        System.out.println("5. Logout");
-        
-        int enterManagementEmployee = scanner.nextInt();
-        
-        switch (enterManagementEmployee) {
-            case 1:
-                System.out.println("Would you like to: ");
-                System.out.println("1. Entering Customer Data");
-                System.out.println("2. Entering Sales Data");
-                System.out.println("3. Entering Vehicle Data");
-                
-                int enterData = scanner.nextInt();
-                
-                if (enterData == 1) {
-                    EnterCustomerData ecd = new EnterCustomerData();
-                    ecd.customerData(checkES);
-                } else if (enterData == 2) {
-                    System.out.println("Please enter your employee ID: ");
-                    String employeeId = scanner.nextLine();
-                    EnterSalesData esd = new EnterSalesData();
-                    esd.SalesData(employeeId, checkES);
-                } else if (enterData == 3) {
-                    EnterVehicle evd = new EnterVehicle();
-                    evd.VehicleData();
-                } else {
-                    System.out.println("You entered an invalid option.");
-                    break;
-                }
-                break;
-            case 2:
-                System.out.println("Would you like to: ");
-                System.out.println("1. View all customer data");
-                System.out.println("2. View all sales records");
-                System.out.println("3. View all vechile data");
-                System.out.println("4. View all employee data");
-                
-                int viewData = scanner.nextInt();
-                
-                if (viewData == 1) {
+            System.out.println("Would you like to: ");
+            System.out.println("1. Entering New Data");
+            System.out.println("2. View Info");
+            System.out.println("3. Import Data");
+            System.out.println("4. Change password");
+            System.out.println("5. Logout");
+            
+            int enterManagementEmployee = scanner.nextInt();
+            
+            switch (enterManagementEmployee) {
+                case 1:
+                    System.out.println("Would you like to: ");
+                    System.out.println("1. Entering Customer Data");
+                    System.out.println("2. Entering Sales Data");
+                    System.out.println("3. Entering Vehicle Data");
                     
-                } else if (viewData == 2) {
-
-                } else if (viewData == 3) {
-
-                } else if (viewData == 4) {
-
-                } else {
-                    System.out.println("You entered an invalid option.");
+                    int enterData = scanner.nextInt();
+                    
+                    if (enterData == 1) {
+                        EnterCustomerData ecd = new EnterCustomerData();
+                        ecd.customerData(checkES);
+                    } else if (enterData == 2) {
+                        System.out.println("Please enter your employee ID: ");
+                        String employeeId = scanner.nextLine();
+                        EnterSalesData esd = new EnterSalesData();
+                        esd.SalesData(employeeId, checkES);
+                    } else if (enterData == 3) {
+                        EnterVehicleData evd = new EnterVehicleData();
+                        evd.vehicleData();
+                    } else {
+                        System.out.println("You entered an invalid option.");
+                        break;
+                    }
                     break;
-                }
-                break;
-            case 3:
+                case 2:
+                    System.out.println("Would you like to: ");
+                    System.out.println("1. View all customer data");
+                    System.out.println("2. View all sales records");
+                    System.out.println("3. View all vehicle data");
+                    System.out.println("4. View all employee data");
+                    
+                    int viewData = scanner.nextInt();
+                    
+                    if (viewData == 1) {
+                        ViewManagement.viewAllInfo("cust.csv");
+                                System.out.println();
+                    } else if (viewData == 2) {
+                        ViewManagement.viewAllInfo("sales.csv");
+                                System.out.println();
+                    } else if (viewData == 3) {
+                        ViewManagement.viewAllInfo("vehicle.csv");
+                                System.out.println();
+                    } else if (viewData == 4) {
+                        ViewManagement.viewAllInfo("employee.csv");
+                                System.out.println();
+                    } else {
+                        System.out.println("You entered an invalid option.");
+                        break;
+                    }
+                    break;
+                case 3:
 
-                break;
-            case 4:
-                ChangePassword cp = new ChangePassword();
-                cp.change();
-                break;
-            case 5:
-                System.out.println("Exiting LeCars Sales Management System. Goodbye!");
-                break loop;
-            default:
-                System.out.println("You entered an invalid option.");
-        }
+                    break;
+                case 4:
+                    ChangePassword cp = new ChangePassword();
+                    cp.change();
+                    break;
+                case 5:
+                    System.out.println("Exiting LeCars Sales Management System. Goodbye!");
+                    break loop;
+                default:
+                    System.out.println("You entered an invalid option.");
+            }
         }
     }
 }

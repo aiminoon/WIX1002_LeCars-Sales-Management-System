@@ -1,4 +1,4 @@
-package LeCarsProject.ViewInfo;
+package intlocjava.lecars_project;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
