@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author User
  */
-public class ViewVehicle {
+public class ViewAllVehicle {
     public static void displayVehicles(){
         List<String[]> vehicleData = new ArrayList<>();
         
