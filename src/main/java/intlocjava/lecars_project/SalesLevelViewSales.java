@@ -9,9 +9,7 @@ import java.util.List;
  *
  * @author User
  */
-public class ViewSales {
-
-    
+public class SalesLevelViewSales {
     public static void displaySales(String empID){
         List<String[]> salesData = new ArrayList<>();
         
@@ -25,6 +23,7 @@ public class ViewSales {
             
             // Display sales records for the given employee ID
             System.out.println("Sales records for Employee ID " + empID + ":");
+            System.out.printf("%-10s   %-30s    %-14s    %-15s\n", "Sales ID", "Date", "Car Plate", "Customer ID", "Employee ID");
             for (String[] row : salesData){
                 if(row.length >= 5) { //ensure there are at least 5 elements in row array
                     String salesId= row[0];
@@ -35,7 +34,7 @@ public class ViewSales {
              
                 
                     if(employeeId.equals(empID)){
-                        System.out.println("Sales Id: " + salesId + ", Date and Time: " + dateTime + ", Car Plate: "+ carPlate + ", Customer ID: " + custId);
+                        System.out.printf("%-10s   %-30s    %-14s    %-15s\n", salesId, dateTime, carPlate, custId, employeeId);
                     }
                 } else {
                     // Handle rows with null data 
