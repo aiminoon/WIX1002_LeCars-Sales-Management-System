@@ -102,12 +102,20 @@ public class main {
                 int viewData = scanner.nextInt();
                 
                 if (viewData == 1) {
-                    System.out.println("Please enter your name: ");
-                    String employeeName = scanner.nextLine();
+                        System.out.println("Please enter your employee ID: ");
+                        String empId = scanner.nextLine();
+                        SalesLevelViewCustomer vCust = new SalesLevelViewCustomer();
+                        vCust.displayCustRecords(empId);
 
                 } else if (viewData == 2) {
+                        System.out.println("Please enter your employee ID: ");
+                        String empId = scanner.nextLine();
+                        SalesLevelViewSales vsales = new SalesLevelViewSales();
+                        vsales.displaySales(empId);
 
                 } else if (viewData == 3) {
+                        ViewVehicle vVehicle = new ViewVehicle();
+                        vVehicle.displayVehicles();
 
                 } else {
                     System.out.println("You entered an invalid option.");
