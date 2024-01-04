@@ -137,7 +137,8 @@ public class main {
             System.out.println("2. View Info");
             System.out.println("3. Import Data");
             System.out.println("4. Change password");
-            System.out.println("5. Logout");
+            System.out.println("5. Calculate Salary");
+            System.out.println("6. Logout");
             
             int enterManagementEmployee = scanner.nextInt();
             
@@ -200,6 +201,17 @@ public class main {
                     cp.change();
                     break;
                 case 5:
+                    System.out.println("Enter employee ID and status.");
+                    System.out.println("employee ID: ");
+                    scanner.nextLine();
+                    String ID = scanner.nextLine();
+                    System.out.print("employee status(0 for sales, 1 for management): ");
+                    int employeeStatus = scanner.nextInt();
+                    Salary salary = new Salary(employeeStatus);
+                    salary.commisionCalculation(ID);
+                    salary.displaySalary(ID);
+                    break;
+                case 6:
                     System.out.println("Exiting LeCars Sales Management System. Goodbye!");
                     break loop;
                 default:
