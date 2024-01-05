@@ -97,7 +97,7 @@ public class main {
                 System.out.println("Would you like to: ");
                 System.out.println("1. View own customer data");
                 System.out.println("2. View own sales records");
-                System.out.println("3. View all vechile data");
+                System.out.println("3. View all vehicle data");
                 
                 int viewData = scanner.nextInt();
                 
