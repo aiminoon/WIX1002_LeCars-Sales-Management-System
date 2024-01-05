@@ -41,7 +41,7 @@ class Employees {
 
 }
 
-class EmployeeData { 
+public class ImportEmployeeData { 
     private static List<Employees> employees = new ArrayList<>();
     public static String getFilePath(){
         String currentDir = System.getProperty("user.dir");
@@ -67,10 +67,46 @@ class EmployeeData {
         }
     }
     
-    public static void addManagementEmp(String employeeId, String employeeName, String password){
-        Employees newEmp = new Employees(employeeId, employeeName, 1, password);
-        employees.add(newEmp);
-        System.out.println("Added Management Level Employee: " + newEmp);
+    public static void addManagementEmp(String empName, String password){
+        int rowsCount = -1;
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("employee.csv"))) {
+            lnr.skip(Long.MAX_VALUE);
+            rowsCount = lnr.getLineNumber() - 1;
+            System.out.println("Number of rows in the file: " + rowsCount);
+        } catch (IOException e) {
+            System.out.println("An error occured while counting number of rows.");
+            e.printStackTrace();
+        }
+        
+        try (FileWriter fw = new FileWriter("employee.csv", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw)) {
+
+            final int EMPLOYEESTATUS = 1;
+            String employeeId = null;
+            
+            if(rowsCount>999){
+                employeeId="E" + (rowsCount+1);
+            } else if(rowsCount>99) {
+                employeeId="E0" + (rowsCount+1);
+            } else if (rowsCount>9) {
+                employeeId="E00" + (rowsCount+1);
+            }
+                    
+            pw.print(employeeId);
+            pw.print(",");
+            pw.print(empName);
+            pw.print(",");
+            pw.print(EMPLOYEESTATUS);
+            pw.print(",");
+            pw.println(password);
+
+            System.out.println("Successfully added.");
+
+        } catch (IOException e) {
+            System.out.println("An error occurred while storing information  of new user in file.");
+            e.printStackTrace();
+        }
     }
     
     public static List<Employees> getEmployees(){
@@ -78,16 +114,16 @@ class EmployeeData {
     }
 }
 
-public class ImportEmployeeData {
+/* public class ImportEmployeeData {
     public static void main(String[] args) {
         EmployeeData.importEmployee();
         
-        //EmployeeData.addManagementEmp("E0016", "Han Yoonseo", "qi820djw");
+        EmployeeData.addManagementEmp("Han Yoonseo", "qi820djw");
         
-    /*    List<Employees> allEmp = EmployeeData.getEmployees();
+        List<Employees> allEmp = EmployeeData.getEmployees();
         System.out.println("\nAll Employees:");
         for (Employees emp : allEmp) {
             System.out.println(emp);
-        } */
+        } 
     }
-}
+} */
