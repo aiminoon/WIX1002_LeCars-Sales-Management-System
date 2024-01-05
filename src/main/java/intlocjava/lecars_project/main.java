@@ -143,7 +143,7 @@ public class main {
             System.out.println("Would you like to: ");
             System.out.println("1. Entering New Data");
             System.out.println("2. View Info");
-            System.out.println("3. Import Data");
+            System.out.println("3. Add New Management Employee");
             System.out.println("4. Change password");
             System.out.println("5. Calculate Salary");
             System.out.println("6. Logout");
@@ -202,7 +202,14 @@ public class main {
                     }
                     break;
                 case 3:
-
+                    System.out.println("Please enter the name and password of new management employee: ");
+                    System.out.println("Name: ");
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
+                    System.out.println("Password: ");
+                    String pwd = scanner.nextLine();
+                    ImportEmployeeData importEmp = new ImportEmployeeData();
+                    importEmp.addManagementEmp(name, pwd); 
                     break;
                 case 4:
                     ChangePassword cp = new ChangePassword();
