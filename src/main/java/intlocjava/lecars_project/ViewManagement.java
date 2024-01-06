@@ -12,12 +12,7 @@ public class ViewManagement {
             while ((line = br.readLine()) != null){
                 String[] data = line.split(",");
                 
-                if (i == 0) {
-                    printInfo(data);
-                    i++;
-                } else {
-                    printInfo(data);
-                }
+                printInfo(data);
             }
         
         } catch (IOException e){
