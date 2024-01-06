@@ -147,7 +147,7 @@ public class main {
             System.out.println("5. Calculate Salary");
             System.out.println("6. View profit margin");
             System.out.println("7. Get Sales Insights");
-            System.out.println("7. Logout");
+            System.out.println("8. Logout");
             
             int enterManagementEmployee = scanner.nextInt();
             
