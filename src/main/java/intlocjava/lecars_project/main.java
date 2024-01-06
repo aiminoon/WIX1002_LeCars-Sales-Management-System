@@ -145,7 +145,8 @@ public class main {
             System.out.println("3. Add New Management Employee");
             System.out.println("4. Change password");
             System.out.println("5. Calculate Salary");
-            System.out.println("6. view profit margin");
+            System.out.println("6. View profit margin");
+            System.out.println("7. Get Sales Insights");
             System.out.println("7. Logout");
             
             int enterManagementEmployee = scanner.nextInt();
@@ -230,6 +231,14 @@ public class main {
                     System.out.printf("Current Margin : %.2f\n\n", ViewProfitMargin.calculateProfitMargin());
                     break;
                 case 7:
+                    System.out.println("Enter employee ID: ");
+                    scanner.nextLine(); 
+                    String iD = scanner.nextLine();
+                    SalesInsights si = new SalesInsights();
+                    si.calculateSalesByMonth(iD);
+                    break;
+                            
+                case 8:
                     System.out.println("Exiting LeCars Sales Management System. Goodbye!");
                     break loop;
                 default:
