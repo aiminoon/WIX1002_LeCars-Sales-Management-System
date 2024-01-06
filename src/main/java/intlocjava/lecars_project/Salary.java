@@ -16,11 +16,11 @@ public class Salary {
     public Salary(int employeeStatus){
         if (employeeStatus == 0){
             baseSalary = 1200;
-            allowance = rand.nextDouble(251);
+            allowance = rand.nextDouble() * 250;
         }
         else if (employeeStatus == 1){
             baseSalary = 2200;
-            allowance = rand.nextDouble(351);
+            allowance = rand.nextDouble() * 350;
         }
         else
             System.out.println("Error in calculating salary.");

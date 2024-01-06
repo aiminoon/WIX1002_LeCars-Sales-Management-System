@@ -114,7 +114,7 @@ public class main {
                         vsales.displaySales(empId);
 
                 } else if (viewData == 3) {
-                        ViewVehicle vVehicle = new ViewVehicle();
+                        ViewAllVehicle vVehicle = new ViewAllVehicle();
                         vVehicle.displayVehicles();
 
                 } else {
