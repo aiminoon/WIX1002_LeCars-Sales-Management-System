@@ -43,6 +43,7 @@ class Employees {
 
 class ImportEmployeeData { 
     private static List<Employees> employees = new ArrayList<>();
+    
     public static String getFilePath(){
         String currentDir = System.getProperty("user.dir");
         return currentDir + File.separator + "employee.csv";
@@ -131,9 +132,7 @@ class ImportEmployeeData {
 /*public class ImportEmployeeData {
     public static void main(String[] args) {
         ImportEmployee.importEmployee();
-        
-        ImportEmployee.addManagementEmp("Han Yoonseo", "qi820djw");
-        
+                
         List<Employees> allEmp = ImportEmployee.getEmployees();
         System.out.println("\nAll Employees:");
         for (Employees emp : allEmp) {
