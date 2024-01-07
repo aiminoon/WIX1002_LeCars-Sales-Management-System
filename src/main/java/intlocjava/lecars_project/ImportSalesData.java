@@ -92,10 +92,6 @@ class SalesData {
 
     public static class ImportSalesData {
     public static void main(String[] args) {
-        String currentDir = System.getProperty("user.dir");
-        String filePath = currentDir + File.separator + "sales.csv";
-        
-        System.out.println(filePath);
         SalesData.importSales();
         }
     }
