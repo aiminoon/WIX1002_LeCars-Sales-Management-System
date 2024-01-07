@@ -43,40 +43,58 @@ class Sales {
         return "Sales ID: " + salesId + ", Date: " + dateTime + ", Car Plate: " + carPlate + ", Customer Id: " + custId + ", Employee Id: " + employeeId; 
     }
 
+    /**
+     * @return
+     */
+    public String toCSVFormat() {
+        return salesId + "," + dateTime + "," + carPlate + "," + custId + "," + employeeId;
+    }
+
 }
 
 class SalesData {
-    public static String getFilePath(){
+
+    public static String getInputFilePath() {
         String currentDir = System.getProperty("user.dir");
         return currentDir + File.separator + "sales.csv";
     }
-    
-    public static void importSales(){
-        System.out.println(getFilePath());
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("sales.csv"));
+
+    public static String getOutputFilePath() {
+        String currentDir = System.getProperty("user.dir");
+        return currentDir + File.separator + "newsales.csv";
+    }
+
+    public static void importSales() {
+        String inputFilePath = getInputFilePath();
+        String outputFilePath = getOutputFilePath();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(outputFilePath))) {
+
             String line;
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data.length == 5) {
                     Sales sale = new Sales(data[0], data[1], data[2], data[3], data[4]);
-                }
-                else {
+                    // Assuming you have a method in Sales to get CSV representation
+                    String csvRepresentation = sale.toCSVFormat();
+                    bw.write(csvRepresentation);
+                    bw.newLine();
+                } else {
                     System.out.println("Invalid line format: " + line);
                 }
             }
-            br.close();
-        } catch (IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-}
 
 
-public class ImportSalesData {
+    public static class ImportSalesData {
     public static void main(String[] args) {
         SalesData.importSales();
-        
+        }
     }
     
 }
