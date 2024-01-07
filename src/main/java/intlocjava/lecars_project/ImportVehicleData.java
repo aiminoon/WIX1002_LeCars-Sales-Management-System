@@ -44,40 +44,48 @@ class Vehicles {
 
 }
 
-class VehicleData { 
-    public static String getFilePath(){
+class VehicleData {
+
+    public static String getInputFilePath() {
         String currentDir = System.getProperty("user.dir");
         return currentDir + File.separator + "vehicle.csv";
     }
-    
-    public static void importVehicle(){
-        System.out.println(getFilePath());
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("vehicle.csv"));
-            String header = br.readLine(); //Skip the header line (assuming 1st line is a header)
+
+    public static String getOutputFilePath() {
+        String currentDir = System.getProperty("user.dir");
+        return currentDir + File.separator + "newvehicle.csv";
+    }
+
+    public static void importAndExportVehicle() {
+        String inputFilePath = getInputFilePath();
+        String outputFilePath = getOutputFilePath();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(outputFilePath))) {
+
+            String header = br.readLine(); // Skip the header line (assuming 1st line is a header)
             String line;
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                if (data.length >= 5){
+                if (data.length >= 5) {
                     Vehicles vehicle = new Vehicles(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
-                    // System.out.println("Imported Vehicle" + vehicle);
-                    
-                } else{
+                    String csvRepresentation = vehicle.toString(); // or use a toCSVFormat method if you have one
+                    bw.write(csvRepresentation);
+                    bw.newLine();
+                } else {
                     System.out.println("Incomplete data for a vehicle: " + line);
-                }    
+                }
             }
-        
-        } catch (IOException e){
+
+        } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
-        } catch (NumberFormatException ex) {
-            ex.printStackTrace();
         }
     }
-}
 
+}
 
 public class ImportVehicleData {
     public static void main(String[] args) {
-        VehicleData.importVehicle();
-    }  
+        VehicleData.importAndExportVehicle();
+    }
 }
