@@ -15,7 +15,7 @@ public class ViewAllVehicle {
         List<String[]> vehicleData = new ArrayList<>();
         
         try {
-            BufferedReader br = new BufferedReader(new FileReader("vehicle.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("newvehicle.csv"));
             String line;
             while((line = br.readLine()) != null)  {
                 String[] row = line.split(","); //split CSV line by comma

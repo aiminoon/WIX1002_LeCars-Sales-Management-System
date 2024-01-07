@@ -14,7 +14,7 @@ public class SalesLevelViewSales {
         List<String[]> salesData = new ArrayList<>();
         
         try {
-            BufferedReader br = new BufferedReader(new FileReader("sales.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("newsales.csv"));
             String line;
             while((line = br.readLine()) != null)  {
                 String[] row = line.split(","); //split CSV line by comma
