@@ -45,20 +45,23 @@ private String custId;
 
 public class ImportCustomerData {
     // Remove the comments on the main method to import the files by running the ImportCustomerData class itself
-    /*public static void main(String[] args) {
-            String currentDir = System.getProperty("user.dir");
-        String filePath = currentDir + File.separator + "newcust.csv";
+    public static void main(String[] args) {
+        String currentDir = System.getProperty("user.dir");
+        String filePath = currentDir + File.separator + "cust.csv";
         
         System.out.println(filePath);
         
         ImportCustomerData.importCustomers();
-    }*/
+    }
    
     
     public static void importCustomers(){
+        String dir = System.getProperty("user.home");
+        String path = dir + File.separator + "Downloads" + File.separator + "cust.csv";
+        
         try {
-            BufferedReader br = new BufferedReader(new FileReader("cust.csv"));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("newcust.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(path));  
+            BufferedWriter bw = new BufferedWriter(new FileWriter("cust.csv"));
             
             String line;
             while ((line = br.readLine()) != null){
