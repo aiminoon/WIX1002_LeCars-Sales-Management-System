@@ -41,18 +41,22 @@ class Employees {
 
 }
 
-public class ImportEmployeeData { 
+class ImportEmployeeData { 
     private static List<Employees> employees = new ArrayList<>();
     public static String getFilePath(){
         String currentDir = System.getProperty("user.dir");
-        return currentDir + File.separator + "newemployee.csv";
+        return currentDir + File.separator + "employee.csv";
     }
     
     public static void importEmployee(){
         System.out.println(getFilePath());
+        
+        String dir = System.getProperty("user.home");
+        String path = dir + File.separator + "Downloads" + File.separator + "employee.csv";
+        
         try {
-            BufferedReader br = new BufferedReader(new FileReader("employee.csv"));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("newemployee.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("employee.csv"));
             
             String header = br.readLine(); 
             bw.write(header);
@@ -126,15 +130,16 @@ public class ImportEmployeeData {
 // Remove the comments on the main method to import the files by running the ImportCustomerData class itself
 /*public class ImportEmployeeData {
     public static void main(String[] args) {
-        ImportEmpData.importEmployee();
+        ImportEmployee.importEmployee();
         
-        ImportEmpData.addManagementEmp("Han Yoonseo", "qi820djw");
+        ImportEmployee.addManagementEmp("Han Yoonseo", "qi820djw");
         
-        List<Employees> allEmp = ImportEmpData.getEmployees();
+        List<Employees> allEmp = ImportEmployee.getEmployees();
         System.out.println("\nAll Employees:");
         for (Employees emp : allEmp) {
             System.out.println(emp);
         } 
     } 
 } */ 
+
 
