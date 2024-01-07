@@ -53,23 +53,12 @@ class Sales {
 }
 
 class SalesData {
-
-    public static String getInputFilePath() {
-        String currentDir = System.getProperty("user.dir");
-        return currentDir + File.separator + "sales.csv";
-    }
-
-    public static String getOutputFilePath() {
-        String currentDir = System.getProperty("user.dir");
-        return currentDir + File.separator + "newsales.csv";
-    }
-
     public static void importSales() {
-        String inputFilePath = getInputFilePath();
-        String outputFilePath = getOutputFilePath();
+        String dir = System.getProperty("user.home");
+        String path = dir + File.separator + "Downloads" + File.separator + "sales.csv";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(outputFilePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path));
+             BufferedWriter bw = new BufferedWriter(new FileWriter("sales.csv"))) {
 
             String line;
             while ((line = br.readLine()) != null) {
@@ -93,6 +82,10 @@ class SalesData {
 
     public static class ImportSalesData {
     public static void main(String[] args) {
+        String currentDir = System.getProperty("user.dir");
+        String filePath = currentDir + File.separator + "sales.csv";
+        
+        System.out.println(filePath);
         SalesData.importSales();
         }
     }

@@ -45,26 +45,12 @@ class Vehicles {
 }
 
 class VehicleData {
-
-    public static String getInputFilePath() {
-        String currentDir = System.getProperty("user.dir");
-        return currentDir + File.separator + "vehicle.csv";
-    }
-
-    public static String getOutputFilePath() {
-        String currentDir = System.getProperty("user.dir");
-        return currentDir + File.separator + "newvehicle.csv";
-    }
-
-    /**
-     * 
-     */
     public static void importAndExportVehicle() {
-        String inputFilePath = getInputFilePath();
-        String outputFilePath = getOutputFilePath();
+        String dir = System.getProperty("user.home");
+        String path = dir + File.separator + "Downloads" + File.separator + "vehicle.csv";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(outputFilePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(path));
+             BufferedWriter bw = new BufferedWriter(new FileWriter("vehicle.csv"))) {
 
             br.readLine(); // Skip the header line (assuming 1st line is a header)
             String line;
@@ -89,6 +75,11 @@ class VehicleData {
 
 public class ImportVehicleData {
     public static void main(String[] args) {
+        String currentDir = System.getProperty("user.dir");
+        String filePath = currentDir + File.separator + "vehicle.csv";
+        
+        System.out.println(filePath);
+        
         VehicleData.importAndExportVehicle();
     }
 }
