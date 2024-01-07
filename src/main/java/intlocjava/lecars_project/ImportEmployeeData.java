@@ -45,21 +45,30 @@ public class ImportEmployeeData {
     private static List<Employees> employees = new ArrayList<>();
     public static String getFilePath(){
         String currentDir = System.getProperty("user.dir");
-        return currentDir + File.separator + "employee.csv";
+        return currentDir + File.separator + "newemployee.csv";
     }
     
     public static void importEmployee(){
         System.out.println(getFilePath());
         try {
             BufferedReader br = new BufferedReader(new FileReader("employee.csv"));
-            String header = br.readLine(); //Skip the header line (assuming 1st line is a header)
+            BufferedWriter bw = new BufferedWriter(new FileWriter("newemployee.csv"));
+            
+            String header = br.readLine(); 
+            bw.write(header);
             String line;
             while ((line = br.readLine()) != null){
                 String[] data = line.split(",");
                 Employees emp = new Employees(data[0], data[1], Integer.parseInt(data[2]), data[3]);
                 employees.add(emp); 
+                
+                bw.newLine();
+                bw.write(line);
             }
-        
+            
+            br.close();
+            bw.close();
+            
         } catch (IOException e){
             e.printStackTrace();
         } catch (NumberFormatException ex) {
@@ -114,16 +123,17 @@ public class ImportEmployeeData {
     }
 }
 
-/* public class ImportEmployeeData {
+/*public class ImportEmployeeData {
     public static void main(String[] args) {
-        EmployeeData.importEmployee();
+        ImportEmpData.importEmployee();
         
-        EmployeeData.addManagementEmp("Han Yoonseo", "qi820djw");
+        ImportEmpData.addManagementEmp("Han Yoonseo", "qi820djw");
         
-        List<Employees> allEmp = EmployeeData.getEmployees();
+        List<Employees> allEmp = ImportEmpData.getEmployees();
         System.out.println("\nAll Employees:");
         for (Employees emp : allEmp) {
             System.out.println(emp);
         } 
-    }
-} */
+    } 
+} */ 
+
