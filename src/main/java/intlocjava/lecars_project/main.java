@@ -186,16 +186,16 @@ public class main {
                     int viewData = scanner.nextInt();
                     
                     if (viewData == 1) {
-                        ViewManagement.viewAllInfo("newcust.csv");
+                        ViewManagement.viewAllInfo("cust.csv");
                                 System.out.println();
                     } else if (viewData == 2) {
-                        ViewManagement.viewAllInfo("newsales.csv");
+                        ViewManagement.viewAllInfo("sales.csv");
                                 System.out.println();
                     } else if (viewData == 3) {
-                        ViewManagement.viewAllInfo("newvehicle.csv");
+                        ViewManagement.viewAllInfo("vehicle.csv");
                                 System.out.println();
                     } else if (viewData == 4) {
-                        ViewManagement.viewAllInfo("newemployee.csv");
+                        ViewManagement.viewAllInfo("employee.csv");
                                 System.out.println();
                     } else {
                         System.out.println("You entered an invalid option.");

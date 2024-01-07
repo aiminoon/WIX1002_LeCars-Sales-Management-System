@@ -27,6 +27,7 @@ public class EnterVehicleData {
             default:
                 System.out.println("You entered an invalid option.");
         }
+        input.close();
     }
         
     public static void newVehicleData() {
@@ -65,6 +66,7 @@ public class EnterVehicleData {
             System.out.println("An error occured while storing vehicle data in vehicle.csv file.");
             e.printStackTrace();
         }
+        input.close();
     }
     
     public static void updateVehicleData() {
@@ -130,5 +132,6 @@ public class EnterVehicleData {
             System.out.println("An error occurred while updating vehicle data in vehicle.csv file.");
             e.printStackTrace();
         }
+        input.close();
     }
 }

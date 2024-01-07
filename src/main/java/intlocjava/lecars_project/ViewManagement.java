@@ -28,28 +28,4 @@ public class ViewManagement {
         }
     }
 
-
-
-    // public static void viewOwnInfo(String filename, Employees loginEmployee) {
-    //     try {
-    //         BufferedReader br = new BufferedReader(new FileReader(filename));
-    //         String line;
-
-    //         int i = 0;
-    //         while ((line = br.readLine()) != null){
-                
-    //             String[] data = line.split(",");
-    //             if (i == 0) {
-    //                 printInfo(data);
-    //                 i++;
-    //             }
-
-    //             if (loginEmployee.getId().equals(data[4])) {
-    //                 printInfo(data);
-    //             }
-    //         }
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
 }

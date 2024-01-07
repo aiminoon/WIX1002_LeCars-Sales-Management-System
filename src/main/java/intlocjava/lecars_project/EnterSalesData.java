@@ -20,7 +20,7 @@ public class EnterSalesData {
         System.out.print("Enter customer Id: ");
         String custId = scanner.nextLine();
         
-        try (FileWriter fw = new FileWriter("Sales.csv", true);
+        try (FileWriter fw = new FileWriter("sales.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
                     
@@ -42,14 +42,14 @@ public class EnterSalesData {
         }
         
         if(checkES == 0){
-            try (FileWriter fw = new FileWriter(employeeId + "Sales.csv", true);
+            try (FileWriter fw = new FileWriter(employeeId + "sales.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
-                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeId + "Sales.csv"))) {
+                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeId + "sales.csv"))) {
                     
                 lineNum.skip(Long.MAX_VALUE);
                 int rowsCountOwn = lineNum.getLineNumber();
-                System.out.println("Number of rows in the " + employeeId + "Sales.csv file: " + rowsCountOwn);
+                System.out.println("Number of rows in the " + employeeId + "sales.csv file: " + rowsCountOwn);
                 
                 if(rowsCountOwn == 0){
                     pw.print("salesId");
@@ -64,7 +64,7 @@ public class EnterSalesData {
                     pw.println();
                 }
                 } catch (IOException e) {
-                    System.out.println("An error occured while counting number of rows in the " + employeeId + "Sales.csv file.");
+                    System.out.println("An error occured while counting number of rows in the " + employeeId + "sales.csv file.");
                     e.printStackTrace();
                 }
 
@@ -79,10 +79,11 @@ public class EnterSalesData {
                 pw.print(employeeId);
             }
             catch(IOException e){
-                System.out.println("An error occured while entering new data in the " + employeeId + "Sales.csv file.");
+                System.out.println("An error occured while entering new data in the " + employeeId + "sales.csv file.");
                 e.printStackTrace();
             }
         }
+    scanner.close();
     }
        
     private String getCurrentDateTime() {
@@ -113,4 +114,5 @@ public class EnterSalesData {
         }
         return salesId;
     }
+    
 }

@@ -15,7 +15,7 @@ public class ViewProfitMargin {
         double totalSalaryEmployee = 0;
         try {
             
-            BufferedReader br = new BufferedReader(new FileReader("newsales.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("sales.csv"));
             String line = "";          
             List<String> carPlates = new ArrayList<>();
             int i = 0;
@@ -34,7 +34,7 @@ public class ViewProfitMargin {
                 }
             }
             br.close();
-            BufferedReader brvehicle = new BufferedReader(new FileReader("newvehicle.csv"));
+            BufferedReader brvehicle = new BufferedReader(new FileReader("vehicle.csv"));
             brvehicle.readLine();
             while((line = brvehicle.readLine()) != null) {
                 String[] row = line.split(",");
@@ -48,7 +48,7 @@ public class ViewProfitMargin {
             
             
             
-            BufferedReader brEmployee = new BufferedReader(new FileReader("newemployee.csv"));
+            BufferedReader brEmployee = new BufferedReader(new FileReader("employee.csv"));
             line = brEmployee.readLine();
             while((line = brEmployee.readLine()) != null)  {
                 String[] row = line.split(",");

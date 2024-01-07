@@ -22,7 +22,7 @@ public class EnterCustomerData {
         System.out.print("Please enter customer postcode: ");
         postcode = input.nextLine();
         int rowsCount = -1, rowsCountOwn = 0;
-        try (LineNumberReader lnr = new LineNumberReader(new FileReader("newcust.csv"))) {
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("cust.csv"))) {
             lnr.skip(Long.MAX_VALUE);
             rowsCount = lnr.getLineNumber() - 1;
             System.out.println("Number of rows in the file: " + rowsCount);
@@ -31,7 +31,7 @@ public class EnterCustomerData {
             e.printStackTrace();
         }
         
-        try (FileWriter fw = new FileWriter("newcust.csv", true);
+        try (FileWriter fw = new FileWriter("cust.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
             
@@ -65,10 +65,10 @@ public class EnterCustomerData {
             String employeeID;
             System.out.print("Enter your employee ID: ");
             employeeID = input.nextLine();
-            try (FileWriter fw = new FileWriter(employeeID + "newcust.csv", true);
+            try (FileWriter fw = new FileWriter(employeeID + "cust.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
-                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeID + "newcust.csv"))) {
+                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeID + "cust.csv"))) {
                 lineNum.skip(Long.MAX_VALUE);
                 rowsCountOwn = lineNum.getLineNumber();
                 System.out.println("Number of rows in the file: " + rowsCountOwn);
@@ -113,5 +113,6 @@ public class EnterCustomerData {
             e.printStackTrace();
         }
         }
+        input.close();
     }
 }

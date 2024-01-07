@@ -21,8 +21,8 @@ public class SalesInsights {
         Map<Month, Integer> monthlySalesMap = new HashMap<>();
         Map<Month, Integer> monthlyCountMap = new HashMap<>();
 
-        try (BufferedReader vehicleReader = new BufferedReader(new FileReader("newvehicle.csv"));
-             BufferedReader salesReader = new BufferedReader(new FileReader("newsales.csv"))) {
+        try (BufferedReader vehicleReader = new BufferedReader(new FileReader("vehicle.csv"));
+             BufferedReader salesReader = new BufferedReader(new FileReader("sales.csv"))) {
 
             Map<String, Integer> carPlateToSalesPrice = new HashMap<>();
 
