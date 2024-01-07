@@ -1,3 +1,14 @@
+package intlocjava.lecars_project;        //Will change all the class to this package name.
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+
 public class SalesInsights {
     /*public static void main(String[] args) {
 
