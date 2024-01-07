@@ -44,8 +44,21 @@ class Vehicles {
 
 }
 
-class VehicleData {
+public class ImportVehicleData {
+    public static void main(String[] args) {        
+        ImportVehicleData.importAndExportVehicle();
+    }
+    
+    private static List<Employees> employees = new ArrayList<>();
+    
+    public static String getFilePath(){
+        String currentDir = System.getProperty("user.dir");
+        return currentDir + File.separator + "vehicle.csv";
+    }
+
     public static void importAndExportVehicle() {
+        System.out.println(getFilePath());
+        
         String dir = System.getProperty("user.home");
         String path = dir + File.separator + "Downloads" + File.separator + "vehicle.csv";
 
@@ -69,17 +82,5 @@ class VehicleData {
         } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
         }
-    }
-
-}
-
-public class ImportVehicleData {
-    public static void main(String[] args) {
-        String currentDir = System.getProperty("user.dir");
-        String filePath = currentDir + File.separator + "vehicle.csv";
-        
-        System.out.println(filePath);
-        
-        VehicleData.importAndExportVehicle();
     }
 }
