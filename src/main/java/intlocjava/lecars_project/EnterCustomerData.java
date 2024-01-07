@@ -65,10 +65,10 @@ public class EnterCustomerData {
             String employeeID;
             System.out.print("Enter your employee ID: ");
             employeeID = input.nextLine();
-            try (FileWriter fw = new FileWriter(employeeID + "Customer.csv", true);
+            try (FileWriter fw = new FileWriter(employeeID + "newcust.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
-                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeID + "Customer.csv"))) {
+                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeID + "newcust.csv"))) {
                 lineNum.skip(Long.MAX_VALUE);
                 rowsCountOwn = lineNum.getLineNumber();
                 System.out.println("Number of rows in the file: " + rowsCountOwn);
