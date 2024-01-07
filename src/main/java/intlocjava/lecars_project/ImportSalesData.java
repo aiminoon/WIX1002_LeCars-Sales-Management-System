@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 class Sales {
     
     private String salesId;
@@ -54,7 +55,11 @@ class Sales {
 
 }
 
-class SalesData {
+public class ImportSalesData {
+    public static void main(String[] args) {
+        ImportSalesData.importSales();
+    }
+    
     private static List<Sales> sales = new ArrayList<>();
 
     public static String getFilePath(){
@@ -89,13 +94,5 @@ class SalesData {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    public static class ImportSalesData {
-    public static void main(String[] args) {
-        SalesData.importSales();
-        }
-    }
-    
+    } 
 }
