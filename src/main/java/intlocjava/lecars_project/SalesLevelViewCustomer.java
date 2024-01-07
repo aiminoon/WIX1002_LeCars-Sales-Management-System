@@ -13,7 +13,7 @@ public class SalesLevelViewCustomer {
     public static List<String[]> readCustCSV() {
         List<String[]> data = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader("cust.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("newcust.csv"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(",");
@@ -28,7 +28,7 @@ public class SalesLevelViewCustomer {
     public static List<String[]> readSalesCSV() {
         List<String[]> data = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader("sales.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("newsales.csv"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(",");
