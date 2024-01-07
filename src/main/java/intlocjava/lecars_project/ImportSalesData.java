@@ -53,7 +53,17 @@ class Sales {
 }
 
 class SalesData {
+    private static List<Sales> sales = new ArrayList<>();
+
+    public static String getFilePath(){
+        String currentDir = System.getProperty("user.dir");
+        return currentDir + File.separator + "sales.csv";
+    }
+
+    
     public static void importSales() {
+        System.out.println(getFilePath()); 
+        
         String dir = System.getProperty("user.home");
         String path = dir + File.separator + "Downloads" + File.separator + "sales.csv";
 
