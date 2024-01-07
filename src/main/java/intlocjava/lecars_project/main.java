@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class main {
         public static void main(String[] args) {
-            
+
             int checkES = -1;
             while(true) {
                 Scanner input = new Scanner(System.in);
@@ -228,7 +228,7 @@ public class main {
                     salary.displaySalary(ID);
                     break;
                 case 6:
-                    System.out.printf("Current Margin : %.2f\n\n", ViewProfitMargin.calculateProfitMargin());
+                    System.out.printf("Current month Margin : %.2f\n\n", ViewProfitMargin.calculateProfitMargin());
                     break;
                 case 7:
                     System.out.println("Enter employee ID: ");
