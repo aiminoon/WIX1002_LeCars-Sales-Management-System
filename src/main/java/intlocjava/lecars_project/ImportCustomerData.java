@@ -47,14 +47,9 @@ private String custId;
 
 public class ImportCustomerData {
     // Remove the comments on the main method to import the files by running the ImportCustomerData class itself
-    /*public static void main(String[] args) {
-        String currentDir = System.getProperty("user.dir");
-        String filePath = currentDir + File.separator + "cust.csv";
-        
-        System.out.println(filePath);
-        
+    public static void main(String[] args) {
         ImportCustomerData.importCustomers();
-    }*/
+    }
     
     private static List<Employees> employees = new ArrayList<>();
     
@@ -91,4 +86,3 @@ public class ImportCustomerData {
         }
     }
 }
-  
