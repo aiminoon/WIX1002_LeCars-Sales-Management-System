@@ -56,6 +56,9 @@ class VehicleData {
         return currentDir + File.separator + "newvehicle.csv";
     }
 
+    /**
+     * 
+     */
     public static void importAndExportVehicle() {
         String inputFilePath = getInputFilePath();
         String outputFilePath = getOutputFilePath();
@@ -63,7 +66,7 @@ class VehicleData {
         try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
              BufferedWriter bw = new BufferedWriter(new FileWriter(outputFilePath))) {
 
-            String header = br.readLine(); // Skip the header line (assuming 1st line is a header)
+            br.readLine(); // Skip the header line (assuming 1st line is a header)
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");

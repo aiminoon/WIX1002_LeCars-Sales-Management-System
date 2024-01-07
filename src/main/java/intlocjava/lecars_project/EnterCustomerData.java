@@ -22,7 +22,7 @@ public class EnterCustomerData {
         System.out.print("Please enter customer postcode: ");
         postcode = input.nextLine();
         int rowsCount = -1, rowsCountOwn = 0;
-        try (LineNumberReader lnr = new LineNumberReader(new FileReader("cust.csv"))) {
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("newcust.csv"))) {
             lnr.skip(Long.MAX_VALUE);
             rowsCount = lnr.getLineNumber() - 1;
             System.out.println("Number of rows in the file: " + rowsCount);
@@ -31,7 +31,7 @@ public class EnterCustomerData {
             e.printStackTrace();
         }
         
-        try (FileWriter fw = new FileWriter("cust.csv", true);
+        try (FileWriter fw = new FileWriter("newcust.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
             

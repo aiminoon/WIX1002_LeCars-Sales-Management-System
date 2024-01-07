@@ -14,7 +14,7 @@ public class ChangePassword {
         oldPassword = scan.nextLine();
 
         try {
-        RandomAccessFile raf = new RandomAccessFile("employee.csv", "rw");
+        RandomAccessFile raf = new RandomAccessFile("newemployee.csv", "rw");
         
         while (raf.getFilePointer() < raf.length()) {
             long currentPosition = raf.getFilePointer();
@@ -40,10 +40,10 @@ public class ChangePassword {
                 break;
             }
         }
-        System.out.println("Successfully updated password in employee.csv file.");
+        System.out.println("Successfully updated password in newemployee.csv file.");
         
         } catch (IOException e) {
-        System.out.println("An error occurred while updating password in employee.csv file.");
+        System.out.println("An error occurred while updating password in newemployee.csv file.");
         e.printStackTrace();
         }
     }

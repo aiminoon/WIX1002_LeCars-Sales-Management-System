@@ -39,7 +39,7 @@ public class Salary {
         double commisionCalculated = 0;
         
         try {
-            BufferedReader br = new BufferedReader(new FileReader("sales.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("newsales.csv"));
             boolean found = false;
 
             br.readLine();//skip first line
@@ -65,7 +65,7 @@ public class Salary {
         
         if(carPlates != null){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("vehicle.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("newvehicle.csv"));
 
             br.readLine();//skip first line
             while ((line = br.readLine()) != null) {

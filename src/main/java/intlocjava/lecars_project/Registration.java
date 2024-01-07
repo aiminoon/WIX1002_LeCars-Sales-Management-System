@@ -28,7 +28,7 @@ public class Registration {
         String password = sc.nextLine();
 
         int rowsCount = -1;
-        try (LineNumberReader lnr = new LineNumberReader(new FileReader("employee.csv"))) {
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("newemployee.csv"))) {
             lnr.skip(Long.MAX_VALUE);
             rowsCount = lnr.getLineNumber() - 1;
             System.out.println("Number of rows in the file: " + rowsCount);
@@ -37,7 +37,7 @@ public class Registration {
             e.printStackTrace();
         }
         
-        try (FileWriter fw = new FileWriter("employee.csv", true);
+        try (FileWriter fw = new FileWriter("newemployee.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
 
