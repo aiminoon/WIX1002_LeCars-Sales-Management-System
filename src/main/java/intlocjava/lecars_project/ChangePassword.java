@@ -16,6 +16,8 @@ public class ChangePassword {
         try {
             RandomAccessFile raf = new RandomAccessFile("employee.csv", "rw");
 
+            boolean passwordFound = false;
+            
             while (raf.getFilePointer() < raf.length()) {
                 long currentPosition = raf.getFilePointer();
                 String line = raf.readLine();
@@ -39,14 +41,14 @@ public class ChangePassword {
                     raf.close();
                     
                     System.out.println("Successfully updated password in employee.csv file.");
+                    passwordFound = true;
                     break;
-                } else {
-                    System.out.println("Wrong old password! Please try again.");
-                    break;
-                }
+                } 
             }
-
-
+            if (!passwordFound) {
+                    System.out.println("Wrong old password! Please try again.");
+            }
+        
         } catch (IOException e) {
         System.out.println("An error occurred while updating password in employee.csv file.");
         e.printStackTrace();
