@@ -68,7 +68,7 @@ public class EnterSalesData {
     }
        
     private String getCurrentDateTime() {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         
         return df.format(new Date());
     }
