@@ -33,6 +33,17 @@ public class ImportEmployeeData {
 
             br.close();
             bw.close();
+
+            try (LineNumberReader lnr = new LineNumberReader(new FileReader("employee.csv"))) {
+                lnr.skip(Long.MAX_VALUE);
+                int rowsCount = -1;
+                rowsCount = lnr.getLineNumber();
+                System.out.println("Number of rows in employee.csv file is " + rowsCount);
+                
+            } catch (IOException e) {
+                System.out.println("An error occured while counting number of rows in employee.csv file.");
+                e.printStackTrace();
+            }
             
         } catch (IOException e) {
             System.out.println("An error occured when importing sales data from sales.csv");
