@@ -2,19 +2,23 @@ package intlocjava.lecars_project;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.LineNumberReader;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.util.Scanner;
 
 public class EnterVehicleData {
-    public static void vehicleData(){
-        
+    
+    public void vehicleData(){
         Scanner input = new Scanner(System.in);
+        
         System.out.println("Would you like to: ");
         System.out.println("1. Enter New Vehicle Data");
         System.out.println("2. Update Vehicle Data");
+        
         int checkVehicle = input.nextInt();
         
         switch(checkVehicle){
@@ -27,10 +31,9 @@ public class EnterVehicleData {
             default:
                 System.out.println("You entered an invalid option.");
         }
-        input.close();
     }
         
-    public static void newVehicleData() {
+    public void newVehicleData() {
         Scanner input = new Scanner(System.in);
         
         System.out.print("Please enter car number plate: ");
@@ -46,7 +49,30 @@ public class EnterVehicleData {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
             
-            String soldPrice = null;
+            try (LineNumberReader lnr = new LineNumberReader(new FileReader("vehicle.csv"))) {
+                lnr.skip(Long.MAX_VALUE);
+                int rowsCount = -1;
+                rowsCount = lnr.getLineNumber();
+
+                if(rowsCount == 0){
+                   pw.print("carPlate");
+                   pw.print(",");
+                   pw.print("carModel");
+                   pw.print(",");
+                   pw.print("acquirePrice");
+                   pw.print(",");
+                   pw.print("carStatus");
+                   pw.print(",");
+                   pw.print("salesPrice");
+                   pw.println();
+                }
+                
+            } catch (IOException e) {
+                System.out.println("An error occured while printing first row in vehicle.csv file.");
+                e.printStackTrace();
+            }
+            
+            String soldPrice = "";
             final int CARSTATUS = 1;
             
             pw.print(carPlate);
@@ -56,7 +82,7 @@ public class EnterVehicleData {
             pw.print(AcquiredPrice);
             pw.print(",");
             pw.print(CARSTATUS);
-            pw.println();
+            pw.print(",");
             pw.print(soldPrice);
             pw.println();
             
@@ -66,10 +92,9 @@ public class EnterVehicleData {
             System.out.println("An error occured while storing vehicle data in vehicle.csv file.");
             e.printStackTrace();
         }
-        input.close();
     }
     
-    public static void updateVehicleData() {
+    public void updateVehicleData() {
         Scanner input = new Scanner(System.in);
     
         System.out.print("Please enter car number plate: ");
@@ -82,6 +107,7 @@ public class EnterVehicleData {
             while (raf.getFilePointer() < raf.length()) {
                 String line = raf.readLine();
                 String[] vehicleData = line.split(",");
+                
                 if (carPlate.equals(vehicleData[0])) {
                     found = true;
                     break;
@@ -93,9 +119,11 @@ public class EnterVehicleData {
                 RandomAccessFile tmpraf = new RandomAccessFile(tmpFile, "rw");
 
                 raf.seek(0);
+                
                 while (raf.getFilePointer() < raf.length()) {
                     String updatedLine = raf.readLine();
                     String[] vehicleData = updatedLine.split(",");
+                    
                     if (carPlate.equals(vehicleData[0])) {
                         final int CARSTATUS = 0;
 
@@ -119,6 +147,7 @@ public class EnterVehicleData {
                     raf.writeBytes(tmpraf.readLine());
                     raf.writeBytes(System.lineSeparator());
                 }
+                
                 raf.setLength(tmpraf.length());
 
                 tmpraf.close();
@@ -132,6 +161,5 @@ public class EnterVehicleData {
             System.out.println("An error occurred while updating vehicle data in vehicle.csv file.");
             e.printStackTrace();
         }
-        input.close();
     }
 }
