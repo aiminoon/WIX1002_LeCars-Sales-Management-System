@@ -145,15 +145,4 @@ public class ImportEmployeeData {
     }
 }
 
-// Remove the comments on the main method to import the files by running the ImportCustomerData class itself
-/*public class ImportEmployeeData {
-    public static void main(String[] args) {
-        ImportEmployee.importEmployee();
-                
-        List<Employees> allEmp = ImportEmployee.getEmployees();
-        System.out.println("\nAll Employees:");
-        for (Employees emp : allEmp) {
-            System.out.println(emp);
-        } 
-    } 
-} */ 
+
