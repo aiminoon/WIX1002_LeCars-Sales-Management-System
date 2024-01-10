@@ -76,7 +76,7 @@ public class Main {
         loop:
         while(true){
             System.out.println("\nWould you like to: ");
-            System.out.println("1. Entering New Data");
+            System.out.println("1. Enter New Data");
             System.out.println("2. View Info");
             System.out.println("3. Change password");
             System.out.println("4. Logout");
@@ -86,9 +86,9 @@ public class Main {
             switch (enterSalesEmployee) {
                 case 1:
                     System.out.println("Would you like to: ");
-                    System.out.println("1. Entering Customer Data");
-                    System.out.println("2. Entering Sales Data");
-                    System.out.println("3. Entering Vechile Data");
+                    System.out.println("1. Enter Customer Data");
+                    System.out.println("2. Enter Sales Data");
+                    System.out.println("3. Enter Vechile Data");
 
                     int enterData = scanner.nextInt();
 
@@ -170,7 +170,7 @@ public class Main {
         loop:
         while(true){
             System.out.println("\nWould you like to: ");
-            System.out.println("1. Entering New Data");
+            System.out.println("1. Enter New Data");
             System.out.println("2. View Info");
             System.out.println("3. Get Sales Insights");
             System.out.println("4. Calculate Salary");
@@ -185,9 +185,9 @@ public class Main {
             switch (enterManagementEmployee) {
                 case 1:
                     System.out.println("Would you like to: ");
-                    System.out.println("1. Entering Customer Data");
-                    System.out.println("2. Entering Sales Data");
-                    System.out.println("3. Entering Vehicle Data");
+                    System.out.println("1. Enter Customer Data");
+                    System.out.println("2. Enter Sales Data");
+                    System.out.println("3. Enter Vehicle Data");
                     
                     int enterData = scanner.nextInt();
 
