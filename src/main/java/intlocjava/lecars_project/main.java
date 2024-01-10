@@ -283,8 +283,7 @@ public class ASSIGNMENT1 {
                     System.out.println("Password: ");
                     String pwd = scanner.nextLine();
 
-                    EnterNewManagementData ened = new EnterNewManagementData();
-                    ened.addManagementEmp(name, pwd); 
+                    AddNewManagementEmp.addManagementEmp(name, pwd); 
                     break;
                     
                 case 7:
