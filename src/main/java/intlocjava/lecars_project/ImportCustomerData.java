@@ -29,7 +29,18 @@ public class ImportCustomerData {
             
             br.close();
             bw.close();
-        
+            
+            try (LineNumberReader lnr = new LineNumberReader(new FileReader("cust.csv"))) {
+                lnr.skip(Long.MAX_VALUE);
+                int rowsCount = -1;
+                rowsCount = lnr.getLineNumber();
+                System.out.println("Number of rows in cust.csv file is " + rowsCount);
+                
+            } catch (IOException e) {
+                System.out.println("An error occured while counting number of rows in cust.csv file.");
+                e.printStackTrace();
+            }
+            
         } catch (IOException e){
             System.out.println("An error occured when importing customer data from cust.csv");
             e.printStackTrace();
