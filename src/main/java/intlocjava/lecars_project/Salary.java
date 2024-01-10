@@ -53,6 +53,7 @@ public class Salary {
         
         LocalDateTime date = LocalDateTime.now();
         int currentMonth = date.getMonthValue();
+        int currentYear = date.getYear();
         
         String[] carPlates = new String[10];
         int i = 0;
@@ -69,8 +70,9 @@ public class Salary {
                 String currentTimeDate = sales[1];
                 LocalDateTime dateCheck = LocalDateTime.parse(currentTimeDate, DateTimeFormatter.ISO_DATE_TIME);
                 int monthCheck = dateCheck.getMonthValue();
+                int yearCheck = dateCheck.getYear();
                 
-                if (employeeID.equals(sales[4]) && monthCheck == currentMonth) {
+                if (employeeID.equals(sales[4]) && monthCheck == currentMonth && yearCheck == currentYear) {
                     carPlates[i] = sales[2];
                     i++;
                     found = true;
@@ -78,7 +80,7 @@ public class Salary {
             }
 
             if (!found) {
-                System.out.println("No sales has been made this month");
+                System.out.println("No sales has been made this month by " + ID);
             }
             
         } catch (IOException e) {
