@@ -4,6 +4,20 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package LeCarsProject.Data;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ *
+ * @author User
+ */
 class Employees {
     private String employeeId;
     private String employeeName;
@@ -41,7 +55,10 @@ class Employees {
 
 }
 
-class ImportEmployeeData { 
+public class ImportEmployeeData { 
+    public static void main(String[] args) {
+        importEmployee();
+    }
     private static List<Employees> employees = new ArrayList<>();
     
     public static String getFilePath(){
@@ -140,5 +157,3 @@ class ImportEmployeeData {
         } 
     } 
 } */ 
-
-
