@@ -291,7 +291,7 @@ public class Main {
                     System.out.println("1. Import customer data");
                     System.out.println("2. Import sales records");
                     System.out.println("3. Import vehicle data");
-                    System.out.println("3. Import employee data");
+                    System.out.println("4. Import employee data");
                     
                     int importData = scanner.nextInt();
 
