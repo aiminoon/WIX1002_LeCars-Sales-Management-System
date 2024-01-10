@@ -59,6 +59,8 @@ public class EnterCustomerData {
             pw.print(",");
             pw.print(postcode);
             pw.println();
+            
+            System.out.println("Successfully added new customer data in cust.csv file.");
         }
         catch(IOException e){
             System.out.println("An error occured while writing new customer data in cust.csv. ");
