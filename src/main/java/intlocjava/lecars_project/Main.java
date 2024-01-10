@@ -7,7 +7,7 @@ package intlocjava.lecars_project;
 
 import java.util.Scanner;
 
-public class ASSIGNMENT1 {
+public class Main {
         private static boolean registrationCompleted = false;
         
         public static void main(String[] args) {
