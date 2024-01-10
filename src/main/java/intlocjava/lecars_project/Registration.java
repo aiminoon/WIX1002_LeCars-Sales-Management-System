@@ -9,10 +9,13 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Registration {
+    
     public void Register() {
         Scanner sc = new Scanner(System.in);
+        
         System.out.print("Enter secret key: ");
         String secretKey = sc.nextLine();
+        
         String secretKeyAns = "WIX1002";
 
         if (secretKey.equals(secretKeyAns)) {
@@ -24,14 +27,16 @@ public class Registration {
 
         System.out.print("Enter your full name: ");
         String employeeName = sc.nextLine();
+        
         System.out.print("Enter password: ");
         String password = sc.nextLine();
 
         int rowsCount = -1;
+        
         try (LineNumberReader lnr = new LineNumberReader(new FileReader("employee.csv"))) {
             lnr.skip(Long.MAX_VALUE);
             rowsCount = lnr.getLineNumber() - 1;
-            System.out.println("Number of rows in the file: " + rowsCount);
+            
         } catch (IOException e) {
             System.out.println("An error occured while counting number of rows.");
             e.printStackTrace();
@@ -44,12 +49,12 @@ public class Registration {
             final int EMPLOYEESTATUS = 0;
             String employeeId = null;
             
-            if(rowsCount>999){
-                employeeId="E" + (rowsCount+1);
-            } else if(rowsCount>99) {
-                employeeId="E0" + (rowsCount+1);
-            } else if (rowsCount>9) {
-                employeeId="E00" + (rowsCount+1);
+            if(rowsCount > 999){
+                employeeId = "E" + (rowsCount + 1);
+            } else if(rowsCount > 99) {
+                employeeId = "E0" + (rowsCount + 1);
+            } else if (rowsCount > 9) {
+                employeeId = "E00" + (rowsCount + 1);
             }
                     
             pw.print(employeeId);
@@ -60,12 +65,11 @@ public class Registration {
             pw.print(",");
             pw.println(password);
 
-            System.out.println("Successfully registered.");
+            System.out.println("Successfully registered. You can now login.");
 
         } catch (IOException e) {
             System.out.println("An error occurred while storing information  of new user in file.");
             e.printStackTrace();
         }
-        System.out.println("Registration successful. You can now log in.");
     }
 }
