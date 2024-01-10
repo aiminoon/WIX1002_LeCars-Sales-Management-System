@@ -10,44 +10,48 @@ import java.util.Scanner;
 
 public class EnterCustomerData {
     
-    public static void customerData(int checkES){
+    public void customerData(int checkES){
         Scanner input = new Scanner(System.in);
+        
         String customerName;
         String phoneNumber;
         String postcode;
+        
         System.out.print("Please enter customer name: ");
         customerName = input.nextLine();
+        
         System.out.print("Please enter customer phone number: ");
         phoneNumber = input.nextLine();
+        
         System.out.print("Please enter customer postcode: ");
         postcode = input.nextLine();
-        int rowsCount = -1, rowsCountOwn = 0;
-        try (LineNumberReader lnr = new LineNumberReader(new FileReader("cust.csv"))) {
-            lnr.skip(Long.MAX_VALUE);
-            rowsCount = lnr.getLineNumber() - 1;
-            System.out.println("Number of rows in the file: " + rowsCount);
-        } catch (IOException e) {
-            System.out.println("An error occured while counting number of rows.");
-            e.printStackTrace();
-        }
         
         try (FileWriter fw = new FileWriter("cust.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw)) {
             
-            String customerId = null;
-            
-            if(rowsCount>=999){
-                customerId="C" + (rowsCount+1);
-            } else if(rowsCount>=99) {
-                customerId="C0" + (rowsCount+1);
-            } else if (rowsCount>=9) {
-                customerId="C00" + (rowsCount+1);
-            } else if (rowsCount>=0){
-                customerId="C000" + (rowsCount+1); 
+            try (LineNumberReader lnr = new LineNumberReader(new FileReader("cust.csv"))) {
+                lnr.skip(Long.MAX_VALUE);
+                int rowsCount = -1;
+                rowsCount = lnr.getLineNumber();
+                
+                if(rowsCount == 0){
+                   pw.print("custId");
+                   pw.print(",");
+                   pw.print("custName");
+                   pw.print(",");
+                   pw.print("phoneNum");
+                   pw.print(",");
+                   pw.print("postcode");
+                   pw.println();
+                }
+                
+            } catch (IOException e) {
+                System.out.println("An error occured while printing first row in cust.csv file.");
+                e.printStackTrace();
             }
-            
-            pw.print(customerId);
+
+            pw.print(getCustId());
             pw.print(",");
             pw.print(customerName);
             pw.print(",");
@@ -55,64 +59,39 @@ public class EnterCustomerData {
             pw.print(",");
             pw.print(postcode);
             pw.println();
+        }
+        catch(IOException e){
+            System.out.println("An error occured while writing new customer data in cust.csv. ");
+            e.printStackTrace();
+        }
     }
-        catch(IOException e){
-            e.printStackTrace();
-        }
-        
-        if(checkES == 0){
-            
-            String employeeID;
-            System.out.print("Enter your employee ID: ");
-            employeeID = input.nextLine();
-            try (FileWriter fw = new FileWriter(employeeID + "cust.csv", true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw)) {
-                try (LineNumberReader lineNum = new LineNumberReader(new FileReader(employeeID + "cust.csv"))) {
-                lineNum.skip(Long.MAX_VALUE);
-                rowsCountOwn = lineNum.getLineNumber();
-                System.out.println("Number of rows in the file: " + rowsCountOwn);
-                if(rowsCountOwn == 0){
-                    pw.print("Customer ID");
-                    pw.print(",");
-                    pw.print("Customer Name");
-                    pw.print(",");
-                    pw.print("Phone Number");
-                    pw.print(",");
-                    pw.print("Postcode");
-                    pw.println();
-                    
-                }
-                } catch (IOException e) {
-                    System.out.println("An error occured while counting number of rows.");
-                    e.printStackTrace();
-                }
-            
-                String customerId = null;
+    
+    private String getCustId() {
+        int rowsCount = -1;
+        String customerId = null;
 
-                if(rowsCount>=999){
-                    customerId="C" + (rowsCount+1);
-                } else if(rowsCount>=99) {
-                    customerId="C0" + (rowsCount+1);
-                } else if (rowsCount>=9) {
-                    customerId="C00" + (rowsCount+1);
-                } else if (rowsCount>=0){
-                    customerId="C000" + (rowsCount+1); 
-                }
-
-                pw.print(customerId);
-                pw.print(",");
-                pw.print(customerName);
-                pw.print(",");
-                pw.print(phoneNumber);
-                pw.print(",");
-                pw.print(postcode);
-                pw.println();
+        try (LineNumberReader lnr = new LineNumberReader(new FileReader("cust.csv"))) {
+            lnr.skip(Long.MAX_VALUE);
+            rowsCount = lnr.getLineNumber();
+            System.out.println("Number of rows in the sales.csv file before adding new data: " + rowsCount);
+            
+            if(rowsCount > 999){
+                customerId = "C" + (rowsCount);
+            } else if(rowsCount > 99) {
+                customerId = "C0" + (rowsCount);
+            } else if (rowsCount > 9) {
+                customerId = "C00" + (rowsCount);
+            } else if (rowsCount > 0){
+                customerId = "C000" + (rowsCount); 
+            } else if(rowsCount == 0) {
+                customerId = "C000" + (rowsCount + 1);
+            } else {
+                System.out.println("An error occured while generating customerId in cust.csv file."); 
             }
-        catch(IOException e){
+        } catch (IOException e) {
+            System.out.println("An error occured while counting number of rows in cust.csv file.");
             e.printStackTrace();
         }
-        }
-        input.close();
+        return customerId;
     }
 }
