@@ -14,38 +14,42 @@ public class ChangePassword {
         oldPassword = scan.nextLine();
 
         try {
-        RandomAccessFile raf = new RandomAccessFile("employee.csv", "rw");
-        
-        while (raf.getFilePointer() < raf.length()) {
-            long currentPosition = raf.getFilePointer();
-            String line = raf.readLine();
-            String[] employeeData = line.split(",");
-            
-            if (oldPassword.equals(employeeData[3])) {
-                System.out.print("Enter new password: ");
-                newPassword = scan.nextLine();
-                
-                String updatedLine = employeeData[0] + ","
-                        + employeeData[1] + "," 
-                        + employeeData[2] + "," 
-                        + newPassword ;
+            RandomAccessFile raf = new RandomAccessFile("employee.csv", "rw");
 
-                raf.seek(currentPosition);
+            while (raf.getFilePointer() < raf.length()) {
+                long currentPosition = raf.getFilePointer();
+                String line = raf.readLine();
+                String[] employeeData = line.split(",");
 
-                raf.writeBytes(String.format("%-" + line.length() + "s", updatedLine));
+                if (oldPassword.equals(employeeData[3])) {
+                    System.out.print("Enter new password: ");
+                    newPassword = scan.nextLine();
 
-                raf.seek(currentPosition + line.length());
+                    String updatedLine = employeeData[0] + ","
+                            + employeeData[1] + "," 
+                            + employeeData[2] + "," 
+                            + newPassword ;
 
-                raf.close();
-                break;
+                    raf.seek(currentPosition);
+
+                    raf.writeBytes(String.format("%-" + line.length() + "s", updatedLine));
+
+                    raf.seek(currentPosition + line.length());
+
+                    raf.close();
+                    
+                    System.out.println("Successfully updated password in employee.csv file.");
+                    break;
+                } else {
+                    System.out.println("Wrong old password! Please try again.");
+                    break;
+                }
             }
-        }
-        System.out.println("Successfully updated password in employee.csv file.");
-        
+
+
         } catch (IOException e) {
         System.out.println("An error occurred while updating password in employee.csv file.");
         e.printStackTrace();
         }
-        scan.close();
     }
 }
