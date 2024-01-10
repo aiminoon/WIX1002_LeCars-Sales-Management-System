@@ -76,6 +76,7 @@ public class Salary {
                     carPlates[i] = sales[2];
                     i++;
                     found = true;
+                    System.out.println("Sales has been made this month by " + ID);
                 }
             }
 
